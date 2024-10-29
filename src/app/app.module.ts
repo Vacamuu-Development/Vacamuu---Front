@@ -1,22 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/auth/login/login.component';
-import { HomeComponent } from './modules/admin/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { AppRoutingModule } from './app-routing.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
+import { LoaderModule } from './modules/shared/loader/loader.module';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastModule,
+    ProgressBarModule,
+    CommonModule,
+    LoaderModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    DialogService,
+    MessageService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
