@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="container">
+    <div class="p-4 shadow-2 border-round w-full lg:w-20 card">
+      <div class="text-center mb-5">
+        <div class="text-900 text-3xl" id="tittle">
+          <img src="../../../../assets/img/logo.png" alt="">
+        </div>
+      </div>
+      <div>
+        <form >
+          <label for="email1" class="block text-900 font-medium mb-2">Usuario</label>
+          <input
+            id="email1"
+            type="text"
+            pInputText
+            class="p-inputtext p-component p-element w-full mb-2"
+            
+          />
+  
+          <!-- <span *ngIf="isValidField('Username')" class="text-red-600 text-xs mb-1">{{ getErrorMessage('Username') }}</span> -->
+  
+          <label for="password1" class="block text-900 font-medium mb-2 mt-2">Contraseña</label>
+          <input
+            id="password1"
+            type="password"
+            pInputText
+            class="p-inputtext p-component p-element w-full mb-2"
+           
+          />
+  
+            <!-- <span *ngIf="isValidField('Password')" class="text-red-600 text-xs mb-1">{{ getErrorMessage('Password') }}</span> -->
+  
+  
+          <button
+
+            id="btn"
+            pButton
+            pRipple
+            label="Sign In"
+            icon="pi pi-user"
+            class="p-element p-ripple w-full p-button p-component mb-2 mt-2"
+            type="submit"
+          >
+            <span aria-hidden="true"></span>
+            <span class="p-button-label">Ingresar</span>
+            <span class="p-ink"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>

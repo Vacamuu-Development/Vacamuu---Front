@@ -8,10 +8,12 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
 import { AppRoutingModule } from './app-routing.module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { ToastModule } from 'primeng/toast';
+import { Toast, ToastModule } from 'primeng/toast';
 import { LoaderModule } from './modules/shared/loader/loader.module';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { CommonModule } from '@angular/common';
+import { loaderAnimation } from './@core/utils/page-animation';
+import { ProductsComponent } from './modules/admin/products/products.component';
 
 
 @NgModule({
@@ -21,9 +23,9 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastModule,
+    LoaderModule,
     ProgressBarModule,
     CommonModule,
-    LoaderModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
