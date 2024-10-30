@@ -169,7 +169,6 @@ body{
 }
 
 .product-container {
-    padding: 0 10vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,14 +176,15 @@ body{
     width: 100%;
     margin-bottom: 10px;
     margin-top: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .product-card {
     background-color: #161a1d;
     flex: 0 0 auto;
-    width: 270px;
+    width: 300px;
     height: 470px;
-    margin-right: 40px;
     border-radius: 10px;
 }
 
@@ -267,6 +267,7 @@ footer {
     background: #161a1d;
     padding: 20px;
     color: #fff;
+    width: 100%;
 }
 
 .info {
@@ -313,9 +314,11 @@ footer {
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    z-index: 1000;
 }
 
 .shopping-cart .cart {
     color: white;
     font-size: 24px;
 }
+
