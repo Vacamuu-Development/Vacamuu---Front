@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="login">
-        <button class="search-btn">Entrar</button>
+        <button class="search-btn" routerLink="/login">Entrar</button>
     </div>
 </nav>
 
@@ -31,10 +31,10 @@
         <p>Explora todo nuestro menú</p>
     </div>
     
-    <button class="btn">Explorar</button>
+    <button class="btn" routerLink="/products">Explorar</button>
 </section>
 
-<div class="shopping-cart">
+<div class="shopping-cart" (click)="showShoppingCart()">
     <div class="cart">
         <i class="pi pi-shopping-cart"></i>
     </div>

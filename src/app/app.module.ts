@@ -14,6 +14,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { CommonModule } from '@angular/common';
 import { loaderAnimation } from './@core/utils/page-animation';
 import { ProductsComponent } from './modules/admin/products/products.component';
+import { ShoppingCartComponent } from './modules/admin/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
