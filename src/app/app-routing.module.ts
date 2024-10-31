@@ -13,6 +13,11 @@ const routes: Routes = [
     title: 'Login'
   },
   {
+    path: 'register',
+    loadChildren: () => import('./modules/auth/register/register.module').then(m => m.RegisterModule),
+    titte: 'Register'
+  },
+  {
     path: 'home',
     loadChildren: () => import('./modules/admin/home/home.module').then(m => m.HomeModule),
     title: 'Home'

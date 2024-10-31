@@ -15,10 +15,11 @@ import { CommonModule } from '@angular/common';
 import { loaderAnimation } from './@core/utils/page-animation';
 import { ProductsComponent } from './modules/admin/products/products.component';
 import { ShoppingCartComponent } from './modules/admin/shopping-cart/shopping-cart.component';
+import { RegisterComponent } from './modules/auth/register/register.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
