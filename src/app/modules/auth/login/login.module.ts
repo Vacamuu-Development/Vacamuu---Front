@@ -27,7 +27,7 @@ import { LoginRoutingModule } from './login-routing.module';
     DialogModule,
     TableModule,
     InputTextModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class LoginModule { }

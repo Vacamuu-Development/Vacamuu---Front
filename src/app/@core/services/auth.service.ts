@@ -4,6 +4,8 @@ import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@ang
 import { HttpClient } from '@angular/common/http';
 import { LoginForm } from '../models/forms/login-form.model';
 import { regsiterForm } from '../models/forms/register-form.model';
+import { user } from '../models/user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,10 @@ export class AuthService {
       ]),
     });
     return form;
+  }
+
+  public login(body: Partial<user>): Observable<user> {
+    return this.http.post<user>(`${this.api}/auth/login`, body);
   }
 
   formRegister(): FormGroup<regsiterForm>{
