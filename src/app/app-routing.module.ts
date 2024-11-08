@@ -10,22 +10,27 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./modules/auth/login/login.module').then(m => m.LoginModule),
-    title: 'Login'
+    title: 'Iniciar Sesion'
   },
   {
     path: 'register',
     loadChildren: () => import('./modules/auth/register/register.module').then(m => m.RegisterModule),
-    title: 'Register'
+    title: 'Registro'
   },
   {
     path: 'home',
     loadChildren: () => import('./modules/admin/home/home.module').then(m => m.HomeModule),
-    title: 'Home'
+    title: 'Inicio'
   },
   {
     path: 'products',
     loadChildren: () => import('./modules/admin/products/products.module').then(m => m.ProductsModule),
-    title: 'Products'
+    title: 'Productos'
+  },
+  {
+    path: 'admin-panel',
+    loadChildren: () => import('./modules/admin/admin-panel/admin-panel.module').then(m => m.AdminPanelModule),
+    title: 'Panel administrativo'
   }
 ];
 

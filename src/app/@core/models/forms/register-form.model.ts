@@ -1,6 +1,6 @@
 import { FormControl } from "@angular/forms";
 
-export interface regsiterForm {
+export interface RegisterForm {
     firstName: FormControl<string>;
     lastName: FormControl<string>;
     email: FormControl<string>;

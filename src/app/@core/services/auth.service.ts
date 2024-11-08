@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment.development';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { LoginForm } from '../models/forms/login-form.model';
-import { regsiterForm } from '../models/forms/register-form.model';
+import { RegisterForm } from '../models/forms/register-form.model';
 import { user } from '../models/user.model';
 import { Observable } from 'rxjs';
 
@@ -28,11 +28,11 @@ export class AuthService {
   }
 
   public login(body: Partial<user>): Observable<user> {
-    return this.http.post<user>(`${this.api}/auth/login`, body);
+    return this.http.post<user>(`${this.api}/login`, body);
   }
 
-  formRegister(): FormGroup<regsiterForm>{
-    const form: FormGroup<regsiterForm> = this.fb.group({
+  formRegister(): FormGroup<RegisterForm>{
+    const form: FormGroup<RegisterForm> = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
@@ -46,5 +46,9 @@ export class AuthService {
       phone: new FormControl('', [Validators.required]),
     })
     return form;
+  }
+  
+  public register(body: Partial<user>): Observable<user> {
+    return this.http.post<user>(`${this.api}/register`, body);
   }
 }

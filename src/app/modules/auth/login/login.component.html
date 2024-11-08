@@ -13,7 +13,7 @@
             type="text"
             pInputText
             class="p-inputtext p-component p-element w-full mb-2"
-            
+            formControlName="email"
           />
   
           <!-- <span *ngIf="isValidField('Username')" class="text-red-600 text-xs mb-1">{{ getErrorMessage('Username') }}</span> -->
@@ -24,7 +24,7 @@
             type="password"
             pInputText
             class="p-inputtext p-component p-element w-full mb-2"
-           
+           formControlName="password"
           />
   
             <!-- <span *ngIf="isValidField('Password')" class="text-red-600 text-xs mb-1">{{ getErrorMessage('Password') }}</span> -->
@@ -44,6 +44,8 @@
             <span class="p-button-label">Ingresar</span>
             <span class="p-ink"></span>
           </button>
+
+          <h4>No tienes cuenta? <a routerLink="/register">Registrate aqui</a></h4>
         </form>
       </div>
     </div>

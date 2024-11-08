@@ -6,7 +6,7 @@
         </div>
       </div>
       <div>
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="grid mb-2">
               <div class="col-4">
                 <label for="nombre" class="flex text-900 font-medium mb-2"
@@ -17,7 +17,7 @@
                   placeholder="Nombre"
                   pInputText
                   class="w-full col-6"
-                  formControlName="Nombre"
+                  formControlName="firstName"
                 />
               </div>
     
@@ -30,7 +30,7 @@
                   placeholder="Apellido"
                   pInputText
                   class="w-full col-6"
-                  formControlName="Apellido"
+                  formControlName="lastName"
                 />
               </div>
     
@@ -42,7 +42,7 @@
                   placeholder="Cedula"
                   pInputText
                   class="w-full col-6"
-                  formControlName="Cedula"
+                  formControlName="dni"
                 />
               </div>
             </div>
@@ -54,7 +54,7 @@
               placeholder="Correo Electrónico"
               pInputText
               class="w-full col-6"
-              formControlName="Correo"
+              formControlName="email"
             />
     
             <div class="grid mt-1">
@@ -68,7 +68,7 @@
                   placeholder="Contraseña"
                   pInputText
                   class="w-full col-6"
-                  formControlName="Password"
+                  formControlName="password"
                 />
               </div>
     
@@ -82,7 +82,7 @@
                   placeholder="Confirmar Contraseña"
                   pInputText
                   class="w-full col-6"
-                  formControlName="ConfirmarPassword"
+                 
                 />
               </div>
             </div>
@@ -98,7 +98,7 @@
                   placeholder="Turno"
                   pInputText
                   class="w-full col-6"
-                  formControlName="Turno"
+                  formControlName="address"
                 />
               </div>
     
@@ -111,7 +111,7 @@
                   placeholder="Cargo"
                   pInputText
                   class="w-full col-6"
-                  formControlName="Cargo"
+                  formControlName="phone"
                 />
               </div>
             </div>

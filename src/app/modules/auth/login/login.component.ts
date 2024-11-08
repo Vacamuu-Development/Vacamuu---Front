@@ -1,8 +1,9 @@
 import { Component, signal, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../../@core/services/auth.service';
 import { Router } from '@angular/router';
-import { DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
+import { FormGroup } from '@angular/forms';
+import { LoginForm } from '../../../@core/models/forms/login-form.model';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { MessageService } from 'primeng/api';
 export class LoginComponent {  
   isLoading = signal(false);
   
-  loginForm: any;
+  loginForm: FormGroup<LoginForm>;
   
   onSubmit() {
     if (this.loginForm.valid) {
@@ -35,7 +36,6 @@ export class LoginComponent {
   
   constructor(private authService: AuthService,
     private router: Router,
-    private dialogService: DialogService,
     private messageService: MessageService
   ) { 
     this.loginForm = this.authService.formLogin();
