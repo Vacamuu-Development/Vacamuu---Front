@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="items">
+    <div class="cart-list" *ngFor="let products of cart">
+        <div  class="cart-item">
+          <div class="cart-item-image">
+            <img [src]="products.image" alt="" class="cart-item-image">
+          </div>
+          <div class="cart-item-info">
+            <h2 class="cart-item-name">{{ products.name }}</h2>
+            <p class="cart-item-description">{{ products.description }}</p>
+          </div>
+          <div class="cart-item-price-info">
+            <p class="cart-item-price">{{ products.price }}$</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="total">
+    <div class="total-price">
+      <h1>Total: {{ totalProducts }}$</h1>
+    </div>
+
+    <div class="btn">
+      <button class="pagar">Pagar</button>
+    </div>
+  </div>
+</div>

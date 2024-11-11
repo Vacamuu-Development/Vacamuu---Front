@@ -36,89 +36,18 @@
 </div>
 
 <div class="content">
-    <div class="product-card">
+    <div class="product-card" *ngFor='let product of products'>
         <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
+            <img [src]="product.image" class="product-thumb" alt="">
+            <button class="card-btn" (click)="saveProduct(product)">Agregar al carrito</button>
         </div>
         <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
+            <h2 class="product-brand">{{ product.name }}</h2>
+            <p class="product-short-des">{{ product.description }}</p>
+            <span class="price">{{ product.price }}$  {{ product.category }}</span>
         </div>
     </div>
 
-    <div class="product-card">
-        <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
-        </div>
-        <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
-        </div>
-        <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
-        </div>
-        <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
-        </div>
-        <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
-        </div>
-        <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <div class="product-image">
-            <img src="../../../../assets/img/patacon.jpg" class="product-thumb" alt="">
-            <button class="card-btn">Agregar al carrito</button>
-        </div>
-        <div class="product-info">
-            <h2 class="product-brand">Patacon</h2>
-            <p class="product-short-des">Patacon de pernil o pollo</p>
-            <span class="price">$20</span>
-        </div>
-    </div>
 </div>
 
 <footer>

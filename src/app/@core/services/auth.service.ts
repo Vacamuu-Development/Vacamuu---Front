@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoginForm } from '../models/forms/login-form.model';
 import { RegisterForm } from '../models/forms/register-form.model';
 import { user } from '../models/user.model';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,11 @@ export class AuthService {
   }
 
   public login(body: Partial<user>): Observable<user> {
-    return this.http.post<user>(`${this.api}/login`, body);
+    return this.http.post<user>(`${this.api}/auth/login`, body).pipe(
+      tap(
+        response => console.log("Current User:", response)
+      )
+    );
   }
 
   formRegister(): FormGroup<RegisterForm>{
@@ -39,8 +43,8 @@ export class AuthService {
         Validators.minLength(6),
         Validators.maxLength(16),
       ]),
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
+      firstname: new FormControl('', [Validators.required]),
+      lastname: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required]),
       dni: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
@@ -49,6 +53,6 @@ export class AuthService {
   }
   
   public register(body: Partial<user>): Observable<user> {
-    return this.http.post<user>(`${this.api}/register`, body);
+    return this.http.post<user>(`${this.api}/auth/register`, body);
   }
 }

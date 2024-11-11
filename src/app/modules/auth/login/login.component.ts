@@ -21,10 +21,11 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe({
         next: response => {
           console.log('Login successful:', response);
-          this.router.navigateByUrl('/invoice/invoiceForm');
+          this.router.navigateByUrl('/home');
         },
         error: error => {
           this.messageService.add({severity: 'error', summary: 'Error', detail: 'Usuario o contraseña incorrectos'});
+          console.log('Login error:', error);
         }
       });
     } else {

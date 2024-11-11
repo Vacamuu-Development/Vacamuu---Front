@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from '../products/components/shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'app-home',

@@ -21,10 +21,11 @@ export class RegisterComponent {
       this.authService.register(this.registerForm.value).subscribe({
         next: response => {
           console.log('Register successful:', response);
-          this.router.navigateByUrl('/auth/login');
+          this.router.navigateByUrl('/login');
         },
         error: error => {
           this.messageService.add({severity: 'error', summary: 'Error', detail: 'Error al registrar el usuario'});
+          console.log('Register error:', error);
         }
       });
     } else {

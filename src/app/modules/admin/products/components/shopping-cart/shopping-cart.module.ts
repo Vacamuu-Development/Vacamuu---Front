@@ -7,11 +7,10 @@ import { ShoppingCartRoutingModule } from './shopping-cart-routing.module';
 
 @NgModule({
   declarations: [
-    ShoppingCartComponent
   ],
   imports: [
-    ShoppingCartRoutingModule,
-    CommonModule
+    CommonModule,
+    ShoppingCartRoutingModule
   ]
 })
 export class ShoppingCartModule { }
