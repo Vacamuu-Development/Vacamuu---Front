@@ -37,7 +37,7 @@ body{
   }
 
   .card{
-    width: 500px !important;
+    width: 800px !important;
   }
   
   .error-message {
@@ -74,23 +74,19 @@ body{
   font-weight: bold;
 }
 
-h4{
-  text-align: center;
+select{
+    background-color: #212529;
+    border: transparent;
 }
 
-a{
-  text-decoration: none;
-  color: #ba181b;
+.txtArea{
+    background-color: #212529 !important; 
+    resize: none;
 }
 
-a:hover{
-  color: #a4161a;
-}
-
-.pw{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
+.imgUpload{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

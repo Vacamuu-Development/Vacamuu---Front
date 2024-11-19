@@ -5,19 +5,12 @@
         </div>
         <div class="nav-items">
             <div class="links">
-                <a routerLink="/home">Inicio</a>
-                <a routerLink="/products">Productos</a>
-                <a href="#">Contacto</a>
+                <a routerLink="/home">Agregar Productos</a>
+                <a routerLink="/products">Ver Productos</a>
+                <a routerLink="/products">Ver Pedidos</a>
+                <a href="#">Ver Facturas</a>
             </div>
-            <div class="search">
-                <input type="text" class="search-box" placeholder="Plato, bebida, postre">
-                <button class="search-btn" href="login.html">Buscar</button>
-            </div>
-            
         </div>
-    </div>
-    <div class="login">
-        <button class="search-btn" routerLink="/login">Entrar</button>
     </div>
 </nav>
 
@@ -28,8 +21,12 @@
     </div>
 </section>
 
+<div class="icon">
+    <img src="../../../../assets/img/logo.png" alt="">
+</div>
+
 <div class="content">
-    <div class="option">
+    <div class="option" routerLink="/add-products">
         <h1>Agregar productos</h1>
     </div>
 

@@ -45,7 +45,7 @@ body{
 
 .links{
     display: flex;
-    gap: 10px;
+    gap: 20px;
     width: 100%;
 }
 
@@ -150,20 +150,33 @@ body{
     flex-wrap: wrap;
 }
 
+.icon{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.icon img{
+    
+    height: 50vh;
+}
+
 .option{
-    width: 40%;
+    width: 20%;
     background-color: #ba181b;
-    height: 30vh;
+    height: 15vh;
     border-radius: 10px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+
 }
 
 .option:hover{
     background-color: #a4161a;
     cursor: pointer;
 }
+
+
 
