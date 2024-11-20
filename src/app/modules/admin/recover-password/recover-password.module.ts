@@ -8,6 +8,8 @@ import { MessagesModule } from 'primeng/messages';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { StyleClassModule } from 'primeng/styleclass';
+import { InputOtpModule } from 'primeng/inputotp';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +26,8 @@ import { StyleClassModule } from 'primeng/styleclass';
     ButtonModule,
     InputTextModule,
     StyleClassModule,
-    
+    InputOtpModule,
+    ReactiveFormsModule
   ]
 })
 export class RecoverPasswordModule { }

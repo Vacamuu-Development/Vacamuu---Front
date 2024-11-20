@@ -1,1 +1,14 @@
-<p>confirm-code works!</p>
+<div class="card flex justify-content-center mt-4">
+    <form [formGroup]="formConfirmCode" (ngSubmit)="onSubmit()" class="flex flex-column align-items-center">
+      <p-inputOtp formControlName="code" class="mb-4 w-full ml-4"></p-inputOtp>
+      
+      <button
+        pButton
+        pRipple
+        label="Confirmar codigo"
+        icon="pi pi-send"
+        class="w-full btn"
+        type="submit"
+      ></button>
+    </form>
+  </div>
