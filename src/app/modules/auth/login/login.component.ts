@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { FormGroup } from '@angular/forms';
 import { LoginForm } from '../../../@core/models/forms/login-form.model';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { RecoverPasswordComponent } from '../../admin/recover-password/recover-password.component';
 
 @Component({
   selector: 'app-login',
@@ -33,11 +35,25 @@ export class LoginComponent {
     }
   }
 
+  ref: DynamicDialogRef | undefined;
+
+  showRecoverPassword(){
+    this.ref = this.dialogService.open(RecoverPasswordComponent ,{
+      header: 'Recuperar contraseña',
+      width: '50vw',
+      modal:true,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw'
+      },
+    });
+  }
     
   
   constructor(private authService: AuthService,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private dialogService: DialogService
   ) { 
     this.loginForm = this.authService.formLogin();
   }

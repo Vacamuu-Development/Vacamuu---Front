@@ -18,6 +18,11 @@ const routes: Routes = [
     title: 'Registro'
   },
   {
+    path: 'recover-password',
+    loadChildren: () => import('./modules/admin/recover-password/recover-password.module').then(m => m.RecoverPasswordModule),
+    title: 'Recuperar contraseña'
+  },
+  {
     path: 'home',
     loadChildren: () => import('./modules/admin/home/home.module').then(m => m.HomeModule),
     title: 'Inicio'
