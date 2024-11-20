@@ -44,84 +44,17 @@
 <h2 class="product-tittle">Popular Products</h2>
 <section class="product-section">
     <div class="product-container">
-        <div class="product-card">
+        <div class="product-card" *ngFor='let product of products'>
             <div class="product-image">
-                <span class="discount-tag">50% off</span>
-                <img src="img/patacon.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>
+                <img [src]="product.image" class="product-thumb" alt="">
+                <button class="card-btn" (click)="saveProduct(product)">Agregar al carrito</button>
             </div>
             <div class="product-info">
-                <h2 class="product-brand">Brand</h2>
-                <p class="product-short-des">a short line about the cloth..</p>
-                <span class="price">$20</span><span class="actual-price">$40</span>
+                <h2 class="product-brand">{{ product.name }}</h2>
+                <p class="product-short-des">{{ product.description }}</p>
+                <span class="price">{{ product.price }}$</span>
             </div>
         </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <span class="discount-tag">50% off</span>
-                <img src="img/parrila.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Brand</h2>
-                <p class="product-short-des">a short line about the cloth..</p>
-                <span class="price">$20</span><span class="actual-price">$40</span>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <span class="discount-tag">50% off</span>
-                <img src="img/carne.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Brand</h2>
-                <p class="product-short-des">a short line about the cloth..</p>
-                <span class="price">$20</span><span class="actual-price">$40</span>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <span class="discount-tag">50% off</span>
-                <img src="img/bebida.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Brand</h2>
-                <p class="product-short-des">a short line about the cloth..</p>
-                <span class="price">$20</span><span class="actual-price">$40</span>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <span class="discount-tag">50% off</span>
-                <img src="img/bebida.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Brand</h2>
-                <p class="product-short-des">a short line about the cloth..</p>
-                <span class="price">$20</span><span class="actual-price">$40</span>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <span class="discount-tag">50% off</span>
-                <img src="img/bebida.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Brand</h2>
-                <p class="product-short-des">a short line about the cloth..</p>
-                <span class="price">$20</span><span class="actual-price">$40</span>
-            </div>
-        </div>
-        <!-- +7 more cards -->
     </div>
 </section>
 

@@ -55,4 +55,8 @@ export class AuthService {
   public register(body: Partial<user>): Observable<user> {
     return this.http.post<user>(`${this.api}/auth/register`, body);
   }
+
+  getUser(){
+    return this.http.get<user>(`${this.api}/auth/profile`);
+  }
 }

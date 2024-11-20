@@ -1,4 +1,5 @@
 export interface user{
+    token: any;
     firstName: string; 
     lastName: string;
     dni: string; 

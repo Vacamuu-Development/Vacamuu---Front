@@ -1,0 +1,52 @@
+<div class="content">
+    <div class="logo">
+        <img src="../../../../../../assets/img/Banesco_logo.svg.png" alt="">
+    </div>
+
+    <div class="info">
+        <h1>RIF: J123456789</h1>
+        <h1>Telefono: 0424-1234567</h1>
+        <h1>Monto: {{ monto }}$ - {{ montoBs }}Bs</h1>
+    </div>
+
+    <div class="paymentInfo">
+        <div class="tlf">
+            <label>Telefono:</label>
+             <select class="form-select me-2">
+                <option value="option1">0424</option>
+                <option value="option2">0414</option>
+                <option value="option3">0412</option>
+                <option value="option4">0416</option>
+            </select>
+            <input type="number" class="form-control" placeholder="Ingrese el número de teléfono">
+        </div>
+
+        <div class="ref">
+            <label>Numero de referencia:</label><input type="number" class="form-control" placeholder="Ingrese la referencia">
+        </div>
+
+        <div class="bank">
+            <label>Banco:</label>
+            <select class="form-select me-2">
+                <option value="option1">Banesco</option>
+                <option value="option2">Banco Nacional de Credito</option>
+                <option value="option3">Banco de Venezuela</option>
+                <option value="option4">Bancamiga</option>
+                <option value="option5">Banplus</option>
+                <option value="option6">Banco Mercantil</option>
+                <option value="option7">Banco Bicentenario</option>
+                <option value="option8">Banco del tesero</option>
+                <option value="option9">Banco Sofitasa</option>
+                <option value="option10">Bando BDT</option>
+            </select>
+        </div>
+
+        <div class="date">
+            Fecha: {{ day }}/{{ month }}/{{ year }}
+        </div>
+
+        <div class="btn">
+            <button class="pagar" (click)="payment()">Pagar</button>
+        </div>
+    </div>
+</div>

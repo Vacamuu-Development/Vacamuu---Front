@@ -28,15 +28,15 @@
 </div>
 
 <div class="filters">
-    <button class="filter-btn" routerLink="/login">Todos</button>
-    <button class="filter-btn" routerLink="/login">Entradas</button>
-    <button class="filter-btn" routerLink="/login">Platos principales</button>
-    <button class="filter-btn" routerLink="/login">Postres</button>
-    <button class="filter-btn" routerLink="/login">Bebidas</button>
+    <button class="filter-btn" (click)="showAllProducts()">Todos</button>
+    <button class="filter-btn" (click)="filterProductsById(4)">Entradas</button>
+    <button class="filter-btn" (click)="filterProductsById(1)">Platos principales</button>
+    <button class="filter-btn" (click)="filterProductsById(2)">Postres</button>
+    <button class="filter-btn" (click)="filterProductsById(3)">Bebidas</button>
 </div>
 
 <div class="content">
-    <div class="product-card" *ngFor='let product of products'>
+    <div class="product-card" *ngFor='let product of filteredProducts'>
         <div class="product-image">
             <img [src]="product.image" class="product-thumb" alt="">
             <button class="card-btn" (click)="saveProduct(product)">Agregar al carrito</button>

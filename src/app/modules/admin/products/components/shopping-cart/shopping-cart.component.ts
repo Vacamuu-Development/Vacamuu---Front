@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { products } from '../../../../../@core/models/products.model';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -20,6 +23,28 @@ export class ShoppingCartComponent implements OnInit{
   calculateTotal(){
     this.totalProducts = this.cart.reduce((total, product) => total + product.price, 0);
   }
+
+  ref: DynamicDialogRef | undefined;
+
+  showPaymentModal() {
+      this.ref.close(),
+      finalize(() => {
+        this.ref = this.dialogService.open(PaymentModalComponent ,{
+          header: 'Realiza tu pago movil aqui',
+          width: '50vw',
+          modal:true,
+          data: {
+            monto: this.totalProducts
+          },
+          breakpoints: {
+              '960px': '75vw',
+              '640px': '90vw'
+          },
+      });
+      })
+
+      
+    }
   
-  constructor() {}
+  constructor(private dialogService: DialogService) {}
 }

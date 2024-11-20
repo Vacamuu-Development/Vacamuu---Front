@@ -23,6 +23,8 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe({
         next: response => {
           console.log('Login successful:', response);
+          const token = response.token; // Ajusta esto según la estructura de tu respuesta
+          localStorage.setItem('token', token);
           this.router.navigateByUrl('/home');
         },
         error: error => {

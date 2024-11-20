@@ -1,0 +1,61 @@
+.content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  border: transparent;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+img {
+  width: 50%;
+  border: transparent;
+}
+
+.btn {
+  background-color: #ba181b !important;
+  border-color: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #a4161a !important;
+}
+
+input {
+  border-color: transparent;
+  background-color: #212529;
+  height: 3vh;
+}
+
+select {
+  background-color: #212529;
+  border: transparent;
+  height: 3vh;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.paymentInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
