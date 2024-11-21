@@ -38,6 +38,11 @@ const routes: Routes = [
     title: 'Panel administrativo'
   },
   {
+    path: 'all-products',
+    loadChildren: () => import('./modules/admin/all-products/all-products.module').then(m => m.AllProductsModule),
+    title: 'Todos los productos'
+  },
+  {
     path: 'add-products',
     loadChildren: () => import('./modules/admin/add-products/add-products.module').then(m => m.AddProductsModule),
     title: 'Agregar productos'

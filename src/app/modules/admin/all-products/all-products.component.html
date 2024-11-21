@@ -1,0 +1,37 @@
+<nav class="navbar">
+    <div class="nav">
+        <div class="logo">
+            <h1>VM</h1>
+        </div>
+        <div class="nav-items">
+            <div class="links">
+                <a routerLink="/admin-panel">Inicio</a>
+                <a routerLink="/add-products">Agregar Productos</a>
+                <a routerLink="/all-products">Ver Productos</a>
+                <a routerLink="#">Ver Pedidos</a>
+                <a href="#">Ver Facturas</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="filters">
+    <button class="filter-btn" (click)="showAllProducts()">Todos</button>
+    <button class="filter-btn" (click)="filterProductsById(4)">Entradas</button>
+    <button class="filter-btn" (click)="filterProductsById(1)">Platos principales</button>
+    <button class="filter-btn" (click)="filterProductsById(2)">Postres</button>
+    <button class="filter-btn" (click)="filterProductsById(3)">Bebidas</button>
+</div>
+
+<div class="content">
+    <div class="product-card" *ngFor='let product of filteredProducts'>
+        <div class="product-image">
+            <img [src]="product.image" class="product-thumb" alt="">
+        </div>
+        <div class="product-info">
+            <h2 class="product-brand">{{ product.name }}</h2>
+            <p class="product-short-des">{{ product.description }}</p>
+            <span class="price">{{ product.price }}$</span>
+        </div>
+    </div>
+</div>
