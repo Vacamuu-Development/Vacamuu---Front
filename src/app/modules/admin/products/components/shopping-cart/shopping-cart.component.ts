@@ -26,9 +26,21 @@ export class ShoppingCartComponent implements OnInit{
 
   ref: DynamicDialogRef | undefined;
 
+  closeModal(){
+    if (this.ref) {
+      this.ref.close();
+      console.log('Modal closed');
+    }
+  }
+
+  handlePayment() {
+    this.closeModal();
+    setTimeout(() => {
+      this.showPaymentModal();
+    }, 300); // Ajusta el tiempo según sea necesario
+  }
+  
   showPaymentModal() {
-      this.ref.close(),
-      finalize(() => {
         this.ref = this.dialogService.open(PaymentModalComponent ,{
           header: 'Realiza tu pago movil aqui',
           width: '50vw',
@@ -40,10 +52,7 @@ export class ShoppingCartComponent implements OnInit{
               '960px': '75vw',
               '640px': '90vw'
           },
-      });
-      })
-
-      
+      });   
     }
   
   constructor(private dialogService: DialogService) {}

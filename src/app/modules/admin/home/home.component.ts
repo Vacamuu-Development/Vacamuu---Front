@@ -23,8 +23,21 @@ export class HomeComponent implements OnInit{
   products: products[] = [];
   ref: DynamicDialogRef | undefined;
   user: string;
+  isLoggedIn: boolean = false;
+  userName: string;
+  userLastName: string;
 
   ngOnInit(): void {
+
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isLoggedIn = true;
+      // Supongamos que el token contiene la información del usuario codificada en base64
+      const user = JSON.parse(atob(token.split('.')[1]));
+      this.userName = user.nombre || "Christopher";
+      this.userLastName = user.apellido || "Medina";
+    }
+
     this.authService.getUser().pipe().subscribe({
       next: (user: any) => {
         this.user = user;
@@ -53,6 +66,12 @@ export class HomeComponent implements OnInit{
         console.log('Error:', error);
       }
     })
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
   }
 
     // Método para mezclar un array

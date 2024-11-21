@@ -322,3 +322,13 @@ footer {
     font-size: 24px;
 }
 
+.user-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.name span{
+    margin-left: 5px;
+}

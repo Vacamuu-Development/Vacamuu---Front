@@ -12,12 +12,13 @@ import { ToastModule } from 'primeng/toast';
 import { LoaderModule } from './modules/shared/loader/loader.module';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { CommonModule } from '@angular/common';
+import { ContactComponent } from './modules/admin/contact/contact.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ContactComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

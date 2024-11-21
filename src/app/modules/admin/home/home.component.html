@@ -9,16 +9,20 @@
                 <a routerLink="/products">Productos</a>
                 <a href="#">Contacto</a>
             </div>
-            <div class="search">
-                <input type="text" class="search-box" placeholder="Plato, bebida, postre">
-                <button class="search-btn" href="login.html">Buscar</button>
-            </div>
-            
         </div>
     </div>
-    <div class="login">
+    <div class="login" *ngIf="!isLoggedIn">
         <button class="search-btn" routerLink="/login">Entrar</button>
-    </div>
+      </div>
+      
+      <div class="user-info" *ngIf="isLoggedIn">
+        <div class="name">
+            <i class="pi pi-user"></i><span>{{ userName }} {{ userLastName }}</span>
+        </div>
+        <div class="boton">
+            <button class="search-btn" (click)="logout()">Cerrar Sesión</button>
+        </div>
+      </div>
 </nav>
 
 <!-- Hero Section -->

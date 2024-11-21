@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginForm } from '../models/forms/login-form.model';
 import { RegisterForm } from '../models/forms/register-form.model';
 import { user } from '../models/user.model';
@@ -57,6 +57,8 @@ export class AuthService {
   }
 
   getUser(){
-    return this.http.get<user>(`${this.api}/auth/profile`);
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<user>(`${this.api}/auth/profile`, { headers });
   }
 }
