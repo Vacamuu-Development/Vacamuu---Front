@@ -33,6 +33,11 @@ const routes: Routes = [
     title: 'Productos'
   },
   {
+    path: 'orders',
+    loadChildren: () => import('./modules/admin/orders/orders.module').then(m => m.OrdersModule),
+    title: 'Pedidos'
+  },
+  {
     path: 'admin-panel',
     loadChildren: () => import('./modules/admin/admin-panel/admin-panel.module').then(m => m.AdminPanelModule),
     title: 'Panel administrativo'
@@ -41,6 +46,11 @@ const routes: Routes = [
     path: 'all-products',
     loadChildren: () => import('./modules/admin/all-products/all-products.module').then(m => m.AllProductsModule),
     title: 'Todos los productos'
+  },
+  {
+    path: 'all-orders',
+    loadChildren: () => import('./modules/admin/all-orders/all-orders.module').then(m => m.AllOrdersModule),
+    title: 'Todos los pedidos'
   },
   {
     path: 'add-products',

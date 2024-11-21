@@ -7,12 +7,21 @@
             <div class="links">
                 <a routerLink="/home">Inicio</a>
                 <a routerLink="/products">Productos</a>
-                <a href="#">Contacto</a>
+                <a routerLink="/orders">Ver pedidos</a>
             </div>          
         </div>
     </div>
-    <div class="login">
+    <div class="login" *ngIf="!isLoggedIn">
         <button class="search-btn" routerLink="/login">Entrar</button>
+    </div>
+      
+    <div class="user-info" *ngIf="isLoggedIn">
+        <div class="name">
+            <i class="pi pi-user"></i><span>{{ userName }} {{ userLastName }}</span>
+        </div>
+        <div class="boton">
+            <button class="search-btn" (click)="logout()">Cerrar Sesión</button>
+        </div>
     </div>
 </nav>
 

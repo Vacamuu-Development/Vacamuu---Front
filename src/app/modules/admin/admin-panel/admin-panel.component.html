@@ -8,9 +8,21 @@
                 <a routerLink="/admin-panel">Inicio</a>
                 <a routerLink="/add-products">Agregar Productos</a>
                 <a routerLink="/all-products">Ver Productos</a>
-                <a routerLink="#">Ver Pedidos</a>
-                <a href="#">Ver Facturas</a>
+                <a routerLink="/all-orders">Ver Pedidos</a>
             </div>
+        </div>
+    </div>
+
+    <div class="login" *ngIf="!isLoggedIn">
+        <button class="search-btn" routerLink="/login">Entrar</button>
+    </div>
+      
+    <div class="user-info" *ngIf="isLoggedIn">
+        <div class="name">
+            <i class="pi pi-user"></i><span>{{ userName }} {{ userLastName }}</span>
+        </div>
+        <div class="boton">
+            <button class="search-btn" (click)="logout()">Cerrar Sesión</button>
         </div>
     </div>
 </nav>
@@ -35,13 +47,8 @@
         <h1>Ver productos</h1>
     </div>
 
-    <div class="option">
+    <div class="option" routerLink="/all-orders">
         <h1>Ver pedidos</h1>
-    </div>
-
-
-    <div class="option">
-        <h1>Ver facturas</h1>
     </div>
 </div>
 

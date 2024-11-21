@@ -8,7 +8,7 @@
         <h1>Telefono: 0424-1234567</h1>
         <h1>Monto: {{ monto }}$ - {{ montoBs }}Bs</h1>
     </div>
-
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
     <div class="paymentInfo">
         <div class="tlf">
             <label>Telefono:</label>
@@ -18,11 +18,11 @@
                 <option value="option3">0412</option>
                 <option value="option4">0416</option>
             </select>
-            <input type="number" class="form-control" placeholder="Ingrese el número de teléfono">
+            <input type="number" class="form-control tlf-input">
         </div>
 
         <div class="ref">
-            <label>Numero de referencia:</label><input type="number" class="form-control" placeholder="Ingrese la referencia">
+            <label>Numero de referencia:</label><input type="number" class="form-control">
         </div>
 
         <div class="bank">
@@ -45,8 +45,26 @@
             Fecha: {{ day }}/{{ month }}/{{ year }}
         </div>
 
+        <div class="address">
+            <label>Direccion de entrega:</label><input type="text" class="form-control" formControlName="address">
+        </div>
+
         <div class="btn">
-            <button class="pagar" (click)="payment()">Pagar</button>
+            <button
+
+            id="btn"
+            pButton
+            pRipple
+            label="Sign In"
+            icon="pi pi-user"
+            class="p-element p-ripple w-full p-button p-component mb-2 mt-2 btn"
+            type="submit"
+          >
+            <span aria-hidden="true"></span>
+            <span class="p-button-label">Ingresar</span>
+            <span class="p-ink"></span>
+          </button>
         </div>
     </div>
+    </form>
 </div>

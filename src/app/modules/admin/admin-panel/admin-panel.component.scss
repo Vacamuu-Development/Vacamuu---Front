@@ -178,5 +178,54 @@ body{
     cursor: pointer;
 }
 
+.user-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.name span{
+    margin-left: 5px;
+}
+
+.btn{
+    background-color: #ba181b;
+    color: white;
+    height: 3vh;
+    margin-top: 10px;
+    width: 10%;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+.btn:hover{
+    background-color: #a4161a;
+    cursor: pointer;
+}
+
+.logo{
+    border: 1px solid white;
+    padding: 5px;
+}
+.search-btn {
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #ba181b;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-btn:hover {
+    background: #a4161a;
+}
+
+.login{
+    margin-left: 10px;
+}
+
 
 

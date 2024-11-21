@@ -8,8 +8,7 @@ import { finalize } from 'rxjs';
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
-  encapsulation: ViewEncapsulation.None
-})
+  })
 export class ShoppingCartComponent implements OnInit{
   cart: products[] = [];
   totalProducts: number = 0;
@@ -25,24 +24,10 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   ref: DynamicDialogRef | undefined;
-
-  closeModal(){
-    if (this.ref) {
-      this.ref.close();
-      console.log('Modal closed');
-    }
-  }
-
-  handlePayment() {
-    this.closeModal();
-    setTimeout(() => {
-      this.showPaymentModal();
-    }, 300); // Ajusta el tiempo según sea necesario
-  }
   
   showPaymentModal() {
+    this.dialogRef.close();
         this.ref = this.dialogService.open(PaymentModalComponent ,{
-          header: 'Realiza tu pago movil aqui',
           width: '50vw',
           modal:true,
           data: {
@@ -55,5 +40,5 @@ export class ShoppingCartComponent implements OnInit{
       });   
     }
   
-  constructor(private dialogService: DialogService) {}
+  constructor(private dialogService: DialogService, private dialogRef: DynamicDialogRef) {}
 }

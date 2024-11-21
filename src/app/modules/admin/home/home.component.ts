@@ -34,8 +34,8 @@ export class HomeComponent implements OnInit{
       this.isLoggedIn = true;
       // Supongamos que el token contiene la información del usuario codificada en base64
       const user = JSON.parse(atob(token.split('.')[1]));
-      this.userName = user.nombre || "Christopher";
-      this.userLastName = user.apellido || "Medina";
+      this.userName = this.capitalizeFirstLetter(user.firstname || " ");
+      this.userLastName = this.capitalizeFirstLetter(user.lastname || " ");
     }
 
     this.authService.getUser().pipe().subscribe({
@@ -66,6 +66,10 @@ export class HomeComponent implements OnInit{
         console.log('Error:', error);
       }
     })
+  }
+
+  capitalizeFirstLetter(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   }
 
   logout(): void {
@@ -105,7 +109,6 @@ export class HomeComponent implements OnInit{
    showShoppingCart() {
       if (this.checkAuthentication()) {
         this.ref = this.dialogService.open(ShoppingCartComponent ,{
-            header: 'Carrito de compras',
             width: '50vw',
             modal:true,
             breakpoints: {

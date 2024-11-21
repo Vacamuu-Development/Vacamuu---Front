@@ -4,6 +4,8 @@ import { ProductsComponent } from './products.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { PaymentModalComponent } from './components/payment-modal/payment-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -17,7 +19,9 @@ import { PaymentModalComponent } from './components/payment-modal/payment-modal.
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    ReactiveFormsModule,
+    ButtonModule
   ]
 })
 export class ProductsModule { }

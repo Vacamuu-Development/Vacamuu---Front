@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
 }
 
 .logo {
@@ -41,6 +42,10 @@ input {
   border-color: transparent;
   background-color: #212529;
   height: 3vh;
+}
+
+.tlf-input{
+  width: 50%;
 }
 
 select {

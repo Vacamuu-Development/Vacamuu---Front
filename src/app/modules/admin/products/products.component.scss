@@ -274,6 +274,17 @@ footer {
     color: #666;
 }
 
+.user-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.name span{
+    margin-left: 5px;
+}
+
 @media (width: 1440px){
     .product-card{
         width: 348px;

@@ -186,4 +186,39 @@ footer {
 .logo{
     border: 1px solid white;
     padding: 5px;
+} 
+
+
+.logo{
+    border: 1px solid white;
+    padding: 5px;
+}
+.search-btn {
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #ba181b;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-btn:hover {
+    background: #a4161a;
+}
+
+.login{
+    margin-left: 10px;
+}
+
+.user-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.name span{
+    margin-left: 5px;
 }

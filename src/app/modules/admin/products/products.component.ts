@@ -5,6 +5,7 @@ import { ProductsService } from '../../../@core/services/products.service';
 import { products } from '../../../@core/models/products.model';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { AuthService } from '../../../@core/services/auth.service';
 
 @Component({
   selector: 'app-products',
@@ -16,16 +17,39 @@ export class ProductsComponent implements OnInit{
   products: products[] = [];
   filteredProducts: products[] = [];
   id: number = 0;
-  
+  user: string;
+  isLoggedIn: boolean = false;
+  userName: string;
+  userLastName: string;
 
-  constructor(private dialogService: DialogService, private productsService: ProductsService, private router: Router, private messageService: MessageService) { }
+  constructor(private dialogService: DialogService, private productsService: ProductsService, private router: Router, private messageService: MessageService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isLoggedIn = true;
+      // Supongamos que el token contiene la información del usuario codificada en base64
+      const user = JSON.parse(atob(token.split('.')[1]));
+      this.userName = this.capitalizeFirstLetter(user.firstname || " ");
+      this.userLastName = this.capitalizeFirstLetter(user.lastname || " ");
+    }
+
+    this.authService.getUser().pipe().subscribe({
+      next: (user: any) => {
+        this.user = user;
+        console.log('User:', this.user);
+      },
+      error: (error: any) => {
+        console.log('Error:', error);
+      }
+    });
+
     this.productsService.getProducts().subscribe({
       next: (data: any) => {
         console.log('Products:', data);
         this.products = data.map((product: products) => {
           return {
+            id: product.id,
             name: product.name,
             price: product.price,
             description: product.description,
@@ -41,7 +65,16 @@ export class ProductsComponent implements OnInit{
       }
     })
   }
+  
+  logout(): void {
+    localStorage.removeItem('token');
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+  }
 
+  capitalizeFirstLetter(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
 
   checkAuthentication(): boolean {
     const token = localStorage.getItem('token');
@@ -77,7 +110,6 @@ export class ProductsComponent implements OnInit{
   showShoppingCart() {
     if (this.checkAuthentication()) {
       this.ref = this.dialogService.open(ShoppingCartComponent ,{
-          header: 'Carrito de compras',
           width: '50vw',
           modal:true,
           breakpoints: {
