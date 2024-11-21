@@ -16,6 +16,12 @@ export class OrderService {
     return this.http.get(`${this.api}/billing/client`, { headers });
   }
 
+  getAllOrders(){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.api}/billing`, { headers });
+  }
+
   getPDF(id: number){
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

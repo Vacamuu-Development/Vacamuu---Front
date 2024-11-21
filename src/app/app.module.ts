@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { LoaderModule } from './modules/shared/loader/loader.module';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { CommonModule } from '@angular/common';
+import { RegisterEmployeeComponent } from './modules/auth/register-employee/register-employee.component';
 
 
 @NgModule({

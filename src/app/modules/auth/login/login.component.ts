@@ -25,10 +25,19 @@ export class LoginComponent {
           console.log('Login successful:', response);
           const token = response.token; // Ajusta esto según la estructura de tu respuesta
           localStorage.setItem('token', token);
-          this.router.navigateByUrl('/home');
+
+          // Decodificar el token para obtener el rol del usuario
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          const userRole = payload.role;
+
+          if (userRole === 'Client') {
+            this.router.navigateByUrl('/home');
+          } else {
+            this.router.navigateByUrl('/admin-panel');
+          }
         },
         error: error => {
-          this.messageService.add({severity: 'error', summary: 'Error', detail: 'Usuario o contraseña incorrectos'});
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Usuario o contraseña incorrectos' });
           console.log('Login error:', error);
         }
       });

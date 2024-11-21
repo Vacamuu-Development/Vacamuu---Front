@@ -1,5 +1,35 @@
+<nav class="navbar">
+  <div class="nav">
+      <div class="logo">
+          <h1>VM</h1>
+      </div>
+      <div class="nav-items">
+          <div class="links">
+              <a routerLink="/admin-panel">Inicio</a>
+              <a routerLink="/register-employee">Registrar empleados</a>
+              <a routerLink="/add-products">Agregar Productos</a>
+              <a routerLink="/all-products">Ver Productos</a>
+              <a routerLink="/all-orders">Ver Pedidos</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="login" *ngIf="!isLoggedIn">
+      <button class="search-btn" routerLink="/login">Entrar</button>
+  </div>
+    
+  <div class="user-info" *ngIf="isLoggedIn">
+      <div class="name">
+          <i class="pi pi-user"></i><span>{{ userName }} {{ userLastName }}</span>
+      </div>
+      <div class="boton">
+          <button class="search-btn" (click)="logout()">Cerrar Sesión</button>
+      </div>
+  </div>
+</nav>
+
 <div class="container">
-    <div class="p-4 shadow-2 border-round w-full lg:w-20 card">
+    <div class="p-4 border-round w-full lg:w-20 card">
       <div class="text-center mb-5">
         <div class="text-900 text-3xl" id="tittle">
           <img src="../../../../assets/img/logo.png" alt="">

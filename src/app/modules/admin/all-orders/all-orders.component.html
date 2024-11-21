@@ -6,10 +6,10 @@
         <div class="nav-items">
             <div class="links">
                 <a routerLink="/admin-panel">Inicio</a>
+                <a routerLink="/register-employee">Registrar empleados</a>
                 <a routerLink="/add-products">Agregar Productos</a>
                 <a routerLink="/all-products">Ver Productos</a>
-                <a routerLink="#">Ver Pedidos</a>
-                <a href="#">Ver Facturas</a>
+                <a routerLink="/all-orders">Ver Pedidos</a>
             </div>
         </div>
     </div>
@@ -36,6 +36,12 @@
                     <div>Id</div>
                 </th>
                 <th style="min-width: 5rem">
+                    <div>Nombre</div>
+                </th>
+                <th style="min-width: 5rem">
+                    <div>Apellido</div>
+                </th>
+                <th style="min-width: 5rem">
                     <div>Fecha</div>
                 </th>
                 <th style="min-width: 12rem">
@@ -52,6 +58,8 @@
         <ng-template pTemplate="body" let-order>
             <tr>
                 <td class="custom-td">{{ order.id }}</td>
+                <td class="custom-td">{{ order.clientName }}</td>
+                <td class="custom-td">{{ order.clientLastName }}</td>
                 <td class="custom-td">{{ order.date | date:'dd/mm/yyyy' }}</td>
                 <td class="custom-td">{{ order.total }}$ - {{ totalBs }}Bs</td>
                 <td class="custom-td">{{ order.address }}</td>

@@ -18,6 +18,11 @@ const routes: Routes = [
     title: 'Registro'
   },
   {
+    path: 'register-employee',
+    loadChildren: () => import('./modules/auth/register-employee/register-employee.module').then(m => m.RegisterEmployeeModule),
+    title: 'Registro de empleados'
+  },
+  {
     path: 'recover-password',
     loadChildren: () => import('./modules/admin/recover-password/recover-password.module').then(m => m.RecoverPasswordModule),
     title: 'Recuperar contraseña'

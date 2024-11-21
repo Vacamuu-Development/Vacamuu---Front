@@ -47,17 +47,24 @@ export class AllOrdersComponent {
       }
     });
 
-    this.orderService.getOrders().pipe().subscribe({
+    this.orderService.getAllOrders().subscribe({
       next: (orders: any) => {
-        this.dataOrders = orders;
+        this.dataOrders = orders.map(order => ({
+          ...order,
+          clientName: order.client?.firstname || 'N/A',
+          clientLastName: order.client?.lastname || 'N/A'
+        }));
         console.log('Orders:', this.dataOrders);
         this.calculateTotalBs();
       },
       error: (error: any) => {
         console.log('Error:', error);
       }
-    })
+    });
   }
+
+ 
+
 
   calculateTotalBs(): void {
     this.totalBs = this.dataOrders.reduce((total, order) => total + (order.total * 50), 0);

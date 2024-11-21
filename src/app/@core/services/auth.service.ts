@@ -6,6 +6,7 @@ import { LoginForm } from '../models/forms/login-form.model';
 import { RegisterForm } from '../models/forms/register-form.model';
 import { user } from '../models/user.model';
 import { Observable, tap } from 'rxjs';
+import { RegisterEmployeeForm } from '../models/forms/registerEmployee-form.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +56,29 @@ export class AuthService {
   public register(body: Partial<user>): Observable<user> {
     return this.http.post<user>(`${this.api}/auth/register`, body);
   }
+
+  formRegisterEmployee(): FormGroup<RegisterEmployeeForm>{
+    const form: FormGroup<RegisterEmployeeForm> = this.fb.group({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(16),
+      ]),
+      firstname: new FormControl('', [Validators.required]),
+      lastname: new FormControl('', [Validators.required]),
+      dni: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+    })
+    return form;
+  }
+
+  public registerEmployee(body: Partial<user>): Observable<user> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<user>(`${this.api}/auth/register-employee`, body, { headers });
+  }
+  
 
   getUser(){
     const token = localStorage.getItem('token');

@@ -1,30 +1,33 @@
-import { Component, OnInit, signal, ViewEncapsulation } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { ProductsForm } from '../../../@core/models/forms/products-form.model';
-import { ProductsService } from '../../../@core/services/products.service';
+import { Component, signal, ViewEncapsulation } from '@angular/core';
 import { finalize, tap } from 'rxjs';
-import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
 import { AuthService } from '../../../@core/services/auth.service';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { ProductsService } from '../../../@core/services/products.service';
+import { RegisterEmployeeForm } from '../../../@core/models/forms/registerEmployee-form.model';
+import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-products',
-  templateUrl: './add-products.component.html',
-  styleUrl: './add-products.component.scss',
+  selector: 'app-register-employee',
+  templateUrl: './register-employee.component.html',
+  styleUrl: './register-employee.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class AddProductsComponent implements OnInit{
-  
+export class RegisterEmployeeComponent {
   isLoading = signal(false);
 
-  productForm: FormGroup<ProductsForm>;
+  registerEmployeeForm: FormGroup<RegisterEmployeeForm>;
 
   user: string;
   isLoggedIn: boolean = false;
   userName: string;
   userLastName: string;
 
-  constructor(private authService: AuthService, private router: Router, private messageService: MessageService, private productService: ProductsService) {} 
+  constructor(private authService: AuthService, 
+    private router: Router, 
+    private messageService: MessageService) {
+      this.registerEmployeeForm = this.authService.formRegisterEmployee();
+    } 
 
   ngOnInit(): void{
 
@@ -48,6 +51,26 @@ export class AddProductsComponent implements OnInit{
     });
   }
 
+  onSubmit() {
+    if (this.registerEmployeeForm.valid) {
+      this.authService.registerEmployee(this.registerEmployeeForm.value).subscribe({
+        next: response => {
+          console.log('Register successful:', response);
+          this.router.navigateByUrl('/login');
+        },
+        error: error => {
+          this.messageService.add({severity: 'error', summary: 'Error', detail: 'Error al registrar el usuario'});
+          console.log('Register error:', error);
+        }
+      });
+    } else {
+      error: error => {
+        console.log(error);
+      }
+      
+    }
+  }
+
   checkAuthentication(): boolean {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -66,21 +89,5 @@ export class AddProductsComponent implements OnInit{
     localStorage.removeItem('token');
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
-  }
-
-  onSubmit() {
-    this,this.isLoading.set(true);
-    this.productService.addProducts(this.productForm.value).pipe(
-      finalize(() => this.isLoading.set(false)),
-      tap(() => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'registrado',
-          detail: 'Producto agregado correctamente',
-        });
-
-        this.router.navigateByUrl('/adminPanel');
-      })
-    )
   }
 }
